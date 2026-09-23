@@ -1,0 +1,129 @@
+---
+title: "Following along class code"
+author: "Santiago Del Moral"
+date: "2026-09-16"
+output: pdf_document
+---
+Code will start here
+Important to write {r} to execute R code
+
+```{r}
+x <- c(1, 2, 3)
+length(x)
+typeof(x)
+x
+
+```
+
+something should've printed
+
+```{r}
+i <-c(1L, 2L, 3L, NA_integer_)
+typeof(i)
+i
+
+```
+
+We can have logical operators too
+&& means AND
+|| means OR
+TRUE means TRUE
+FALSE means FALSE
+NA means NA and will return NA in operators that need it
+```{r}
+TRUE && TRUE
+TRUE && FALSE
+TRUE && NA
+TRUE || NA
+FALSE || NA
+```
+
+There's also matrixes use matrix()
+y is the number of dimentions
+use "drop=FALSE" to be able to have onedimentional matrixes instead of a vector.
+
+```{r}
+h <- matrix(1:10, 1)
+h
+```
+
+
+there are lists that can contain any data type
+data frames are two dimentional data structures
+a $ can help you fetch
+```{r}
+df <- data.frame(a=1:10, b=11:20, c=letters[1:10])
+df
+df$a
+```
+
+Functions
+
+R is a functional programming language
+
+
+```{r}
+add <-function(x,y) {
+  x+y
+}
+
+add(1,2)
+
+```
+
+more functions
+apparently you can type " \ " instead of function
+In R things are considered pass by value not pass by reference
+so x is considered immutable... 
+which means unless you're doing <- then only the function's copy is being updated
+Original remains unchanged, unless assigned to a new variable
+
+```{r}
+x <- 1:10
+foo <- function(x){
+  x[1] <- -99
+  x
+}
+
+foo(x)
+#we'll see x is unchanged
+x
+x<-foo(x)
+x
+#now x is changed because it's been assigned
+```
+ 
+No need to keep track of mutations and changes because of immutability.
+
+BREAK
+
+Data visualization now
+Why do we look at data? 
+because the summary statistics can be misleading sometimes
+can check intuitively for outliers
+find patterns visually
+
+Pie charts are not the best usually, plain bar charts are better
+QQ plot, a empirical in the y axis and the theoretical in the x axis (usually normal dist)
+
+Looking at multiple variables, how to check relationships?
+scatterplot
+jitter to avoid overplotting in a scatter plot can work to break up things
+
+density plots 1D or 2D are cool
+
+Plotting:
+we'll be using library(ggplot2) for now
+
+
+```{r}
+library(ggplot2)
+ggplot(penguins,
+       aes(x=bill_len,y=body_mass))+geom_point()
+
+```
+
+```{python}
+print("helloworld")
+```
+
