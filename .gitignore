@@ -2,3 +2,5 @@
 .RData
 .Rproj.user
 .venv/
+.DS_Store
+.quarto/

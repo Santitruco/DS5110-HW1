@@ -1,0 +1,17 @@
+---
+title: "First Python Test"
+format: pdf
+---
+
+I'm going to try to code now
+---
+
+```{python}
+print('hello world')
+
+x = 'hello world'
+
+print(x)
+
+```
+Some code should have been excecuted. 

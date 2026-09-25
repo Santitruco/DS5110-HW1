@@ -12,3 +12,19 @@ print('hello world')
 
 s
 
+```{r }
+print('hello world')
+```
+start following along
+```{r}
+penguins <- as_tibble(penguins)
+
+penguins
+
+penguins|>
+  group_by(species) |>
+  count()
+```
+  
+  
+  
