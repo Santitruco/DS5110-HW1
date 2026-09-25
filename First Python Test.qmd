@@ -14,4 +14,26 @@ x = 'hello world'
 print(x)
 
 ```
+
+```{python}
+import gurobipy as gp
+m = gp.Model()
+
+```
+
+```{python}
+import pulp
+prob = pulp.LpProblem("test", pulp.LpMaximize)
+x = pulp.LpVariable("x", lowBound=0)
+y = pulp.LpVariable("y", lowBound=0)
+prob += 3*x + 2*y
+prob += x + y <= 4
+prob += x + 3*y <= 6
+
+prob.solve(pulp.PULP_CBC_CMD(msg=False))
+print("CBC:", x.value(), y.value(), pulp.value(prob.objective))
+
+prob.solve(pulp.GUROBI(msg=False))
+print("Gurobi:", x.value(), y.value(), pulp.value(prob.objective))
+```
 Some code should have been excecuted. 
